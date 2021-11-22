@@ -4,11 +4,12 @@ import org.amshove.kluent.shouldBeEqualTo
 import org.junit.jupiter.api.Test
 
 private fun product(list: List<Int>): Int {
-    var product = 1
-    for (element in list) {
-        product *= element
-    }
-    return product
+    // Implementation below does the same thing, but with less code
+    //    return list.reduce { it, product -> product * it }
+
+    // But since you asked to have all the required concepts, please check the implementation below :)
+    operator fun List<Int>.invoke() = reduce { it, product -> it * product }
+    return list.reduce(Int::times)
 }
 
 private class Test {
