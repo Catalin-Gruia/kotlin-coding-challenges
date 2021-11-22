@@ -7,8 +7,8 @@ private fun longestWord(str: String): String {
     val strSplit = str.split("\\W".toRegex())
     var longestWord = ""
     for (i in strSplit.indices) {
-        if (strSplit.get(i).length > longestWord.length) {
-            longestWord = strSplit.get(i)
+        if (strSplit[i].length > longestWord.length) {
+            longestWord = strSplit[i]
         }
     }
     return longestWord
