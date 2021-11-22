@@ -5,18 +5,13 @@ import org.junit.jupiter.api.Test
 
 private fun formatTrainRoute(stations: List<String>): String {
     if (stations.size > 1) {
-        var stringCustom = ""
-        var finalString = ""
-        for (i in stations.indices) {
-            if (i == stations.size-1) {
-                // work hard, not smart :(
-                finalString = stringCustom.dropLast(2)
-                finalString += " and ${stations[i]}"
-                break
-            }
-            stringCustom += stations[i] + ", "
-        }
-        return "Train is calling at $finalString"
+        val lastStation = stations.takeLast(1)
+            .joinToString { it }
+
+        val followingStations = stations.dropLast(1)
+            .joinToString { it }
+
+        return "Train is calling at $followingStations and $lastStation"
     }
 
     return "Train is calling at ${stations[0]}"
