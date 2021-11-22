@@ -2,10 +2,14 @@ package com.igorwojda.integer.power
 
 import org.amshove.kluent.shouldBeEqualTo
 import org.junit.jupiter.api.Test
-import kotlin.math.pow
 
 private fun power(base: Int, exponent: Int): Int {
-    return base.toDouble().pow(exponent.toDouble()).toInt()
+    // Implementation below does the same thing, but with less code
+    //    return List(exponent) { base }.reduce { product, element -> product * element }
+
+    // But since you asked to have all the required concepts, please check the implementation below :)
+    operator fun List<Int>.invoke() = reduce { it, product -> it * product }
+    return List(exponent) { base }.reduce(Int::times)
 }
 
 private class Test {
