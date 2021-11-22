@@ -5,8 +5,9 @@ import org.junit.jupiter.api.Test
 
 private fun getIndex(list: List<String>, str: String): Int {
     list.forEachIndexed { index, item ->
-        if (item == str)
+        if (item == str) {
             return index
+        }
     }
     return -1
 }
