@@ -4,7 +4,12 @@ import org.amshove.kluent.shouldBeEqualTo
 import org.junit.jupiter.api.Test
 
 fun generateSteps(n: Int): List<String> {
-    TODO("not implemented")
+    val pyramidElementsList = mutableListOf<String>()
+    for (element in 0 until n) {
+        pyramidElementsList.add("#".repeat(element + 1) + " ".repeat(n - element - 1))
+    }
+
+    return pyramidElementsList
 }
 
 private class Test {
