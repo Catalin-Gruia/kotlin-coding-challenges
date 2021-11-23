@@ -4,7 +4,10 @@ import org.amshove.kluent.shouldBeEqualTo
 import org.junit.jupiter.api.Test
 
 private fun reverse(str: String): String {
-    TODO("not implemented")
+    if (str.isEmpty()) {
+        return str
+    }
+    return reverse(str.substring(1)) + str[0]
 }
 
 private class Test {
