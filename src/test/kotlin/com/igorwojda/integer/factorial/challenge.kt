@@ -3,9 +3,27 @@ package com.igorwojda.integer.factorial
 import org.amshove.kluent.shouldBeEqualTo
 import org.junit.jupiter.api.Test
 
+// Old iterative implementation
 private fun factorial(n: Int): Int {
-    TODO("not implemented")
+    var total = 1
+    for (number in 1..n)
+        total *= number
+    return total
 }
+
+// Re-write this: Using a folding operation
+private fun factorialFoldingOperation(n: Int): Int {
+    return (1..n).fold(1) { product, element -> product * element }
+}
+
+// Re-write this: Using a recursive algorithm
+private fun factorialRecursive(n: Int): Int {
+    if (n == 0) {
+        return 1
+    }
+    return n * factorialRecursive(n - 1)
+}
+
 
 class RecursiveFactorial {
     @Test

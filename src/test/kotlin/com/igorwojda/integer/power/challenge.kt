@@ -4,7 +4,12 @@ import org.amshove.kluent.shouldBeEqualTo
 import org.junit.jupiter.api.Test
 
 private fun power(base: Int, exponent: Int): Int {
-    TODO("not implemented")
+    // Implementation below does the same thing, but with less code
+    //    return List(exponent) { base }.reduce { product, element -> product * element }
+
+    // But since you asked to have all the required concepts, please check the implementation below :)
+    operator fun List<Int>.invoke() = reduce { it, product -> it * product }
+    return List(exponent) { base }.reduce(Int::times)
 }
 
 private class Test {
