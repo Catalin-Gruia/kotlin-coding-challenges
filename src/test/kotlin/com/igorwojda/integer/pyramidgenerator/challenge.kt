@@ -4,7 +4,26 @@ import org.amshove.kluent.shouldBeEqualTo
 import org.junit.jupiter.api.Test
 
 fun generatePyramid(n: Int): List<String> {
-    TODO("not implemented")
+
+    val pyramidElementsList = mutableListOf<String>()
+
+    var lastRow =
+        if (n == 2) {
+            n / 2
+        } else {
+            (n - 1)
+        }
+
+    for (element in 0 until n) {
+        pyramidElementsList.add(
+            " ".repeat(lastRow) +
+                    "#".repeat((element * 2) + 1) +
+                    " ".repeat(lastRow)
+        )
+        lastRow--
+    }
+
+    return pyramidElementsList
 }
 
 private class Test {

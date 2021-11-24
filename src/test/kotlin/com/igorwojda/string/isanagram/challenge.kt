@@ -2,9 +2,13 @@ package com.igorwojda.string.isanagram
 
 import org.amshove.kluent.shouldBeEqualTo
 import org.junit.jupiter.api.Test
+import java.util.*
 
 private fun isAnagram(str1: String, str2: String): Boolean {
-    TODO("not implemented")
+    return Arrays.equals(
+        str1.toLowerCase().filter { it.isLetter() }.chars().sorted().toArray(),
+        str2.toLowerCase().filter { it.isLetter() }.chars().sorted().toArray()
+    )
 }
 
 private class Test {

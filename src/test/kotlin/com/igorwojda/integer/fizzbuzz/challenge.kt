@@ -4,7 +4,17 @@ import org.amshove.kluent.shouldBeEqualTo
 import org.junit.jupiter.api.Test
 
 private fun fizzBuzz(n: Int): List<String> {
-    TODO("not implemented")
+
+    return List(n) {
+        with(it + 1) {
+            when {
+                this % 3 == 0 && this % 5 == 0 -> "FizzBuzz"
+                this % 3 == 0 -> "Fizz"
+                this % 5 == 0 -> "Buzz"
+                else -> this.toString()
+            }
+        }
+    }
 }
 
 private class Test {
