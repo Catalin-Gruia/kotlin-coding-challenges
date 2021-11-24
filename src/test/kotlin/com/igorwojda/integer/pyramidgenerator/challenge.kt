@@ -6,7 +6,14 @@ import org.junit.jupiter.api.Test
 fun generatePyramid(n: Int): List<String> {
 
     val pyramidElementsList = mutableListOf<String>()
-    var lastRow = if (n == 2) n / 2 else (n - 1)
+
+    var lastRow =
+        if (n == 2) {
+            n / 2
+        } else {
+            (n - 1)
+        }
+
     for (element in 0 until n) {
         pyramidElementsList.add(" ".repeat(lastRow) + "#".repeat(element * 2 + 1) + " ".repeat(lastRow--))
     }
