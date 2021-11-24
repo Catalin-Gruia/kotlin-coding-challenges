@@ -4,11 +4,14 @@ import org.amshove.kluent.shouldBeEqualTo
 import org.junit.jupiter.api.Test
 
 private fun isTolerantPalindrome(str: String): Boolean {
-    if (str == str.reversed()) return true
+    if (str == str.reversed()) {
+        return true
+    }
 
     (str.indices).forEach {
-        if (str.removeRange(it, it + 1) == str.removeRange(it, it + 1).reversed())
+        if (str.removeRange(it, it + 1) == str.removeRange(it, it + 1).reversed()) {
             return true
+        }
     }
     return false
 }
