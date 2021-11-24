@@ -15,7 +15,12 @@ fun generatePyramid(n: Int): List<String> {
         }
 
     for (element in 0 until n) {
-        pyramidElementsList.add(" ".repeat(lastRow) + "#".repeat(element * 2 + 1) + " ".repeat(lastRow--))
+        pyramidElementsList.add(
+            " ".repeat(lastRow) +
+                    "#".repeat((element * 2) + 1) +
+                    " ".repeat(lastRow)
+        )
+        lastRow--
     }
 
     return pyramidElementsList
