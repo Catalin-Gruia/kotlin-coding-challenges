@@ -7,7 +7,10 @@ private fun isPermutationPalindrome(str: String): Boolean {
 
     if (str == str.reversed()) return true
 
-    return str.groupingBy { it }.eachCount().filter { it.value % 2 == 1 }.size <= 1
+    return str.groupingBy { it }
+        .eachCount()
+        .filter { it.value % 2 == 1 }
+        .size <= 1
 }
 
 private class Test {
