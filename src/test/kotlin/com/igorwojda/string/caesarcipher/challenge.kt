@@ -3,6 +3,8 @@ package com.igorwojda.string.caesarcipher
 import org.amshove.kluent.shouldBeEqualTo
 import org.junit.jupiter.api.Test
 
+private const val ALPHABET_LENGTH = 26
+
 private fun encodeCaesarCipher(str: String, shift: Int): String {
 
     val aLetterDecimalCode = 'a'.toInt()
@@ -11,7 +13,7 @@ private fun encodeCaesarCipher(str: String, shift: Int): String {
     var encryptedText = ""
 
     str.forEach {
-        val encryptedLetterDecimalCode = (it + (shift % 26)).toInt()
+        val encryptedLetterDecimalCode = (it + (shift % ALPHABET_LENGTH)).toInt()
 
         encryptedText += if (encryptedLetterDecimalCode <= zLetterDecimalCode) {
             encryptedLetterDecimalCode
