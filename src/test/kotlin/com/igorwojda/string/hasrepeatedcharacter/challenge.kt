@@ -4,7 +4,7 @@ import org.amshove.kluent.shouldBeEqualTo
 import org.junit.jupiter.api.Test
 
 private fun hasRepeatedChar(str: String): Boolean {
-    TODO("not implemented")
+    return str.groupingBy { it }.eachCount().filter { it.value > 1 }.isNotEmpty()
 }
 
 private class Test {
